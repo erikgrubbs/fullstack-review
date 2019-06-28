@@ -13,6 +13,13 @@ body {
 
 }
 
+.search {
+  text-align: center;
+  background-color: #373f47;
+  color: whitesmoke;
+  padding-bottom: 20px;
+}
+
 .top25 {
   text-align: center;
   color: rgb(179, 179, 179);
@@ -35,6 +42,7 @@ body {
 
 .repoName {
   text-align: center;
+  margin-top: 10px;
 }
 
 .repoLink:hover {
@@ -48,7 +56,7 @@ body {
 
 
 .repoDiv {
-  border-top: 1px solid #c0c0c0;
+  border-bottom: 1px solid #c0c0c0;
 }
 
 .ownerName:link {
@@ -64,16 +72,26 @@ body {
   text-decoration: underline;
 }
 
+.info {
+  display: flex;
+}
+
 .owner{
   font-size: 20px;
-
+  flex: 1 1 auto;
 }
 
 .description {
-
+  flex: 1 1 auto;
+  text-align: center;
+  margin-top:10px;
+  color: #373f47;
 
 }
 
 .forksnwatch {
+  flex: 1 1 auto;
+  text-align: right;
+  margin-top: 20px;
 
 }
