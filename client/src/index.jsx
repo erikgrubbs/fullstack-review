@@ -1,26 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
+import axios from 'axios';
 import Search from './components/Search.jsx';
 import RepoList from './components/RepoList.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       repos: []
     }
+    this.retrieve25MostForked = this.retrieve25MostForked.bind(this);
 
+  }
+
+  retrieve25MostForked() {
+    axios.get('/repos')
+      .then(({data}) => {
+        this.setState({
+          repos: data
+        })
+      })
+      .catch((err) => console.log(err));
+  }
+
+  componentDidMount() {
+    this.retrieve25MostForked();
   }
 
   search (term) {
     console.log(`${term} was searched`);
-    // TODO
+    axios.post('/repos', {user: term})
+      .then(({data}) => {
+        this.setState({
+          repos:data
+        })
+      })
+      .catch((err) => console.log('error adding repos, user likely does not'));
   }
 
   render () {
     return (<div>
-      <h1>Github Fetcher</h1>
+      <div className="title">Who's Forked?</div>
       <RepoList repos={this.state.repos}/>
       <Search onSearch={this.search.bind(this)}/>
     </div>)
