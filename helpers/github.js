@@ -1,5 +1,5 @@
 const request = require('request');
-const config = require('../config.js');
+const config = process.env.KEY || require('../config.js');
 const axios = require('axios');
 
 let getReposByUsername = (user, callback) => {
