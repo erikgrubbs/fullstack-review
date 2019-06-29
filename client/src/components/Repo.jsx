@@ -6,7 +6,7 @@ const Repo = ({ repo }) => (
     </div>
     <div className="info">
       <span className="owner"><img className="ownerImage" src={repo.ownerPhoto}></img><a className="ownerName" href={repo.ownerUrl}>{repo.ownerName}</a></span>
-      <span className="description">{repo.description}</span>
+      <div className="description">{repo.description}</div>
       <span className="forksnwatch">{`FORKS: ${repo.forks}  watchers: ${repo.watchers}`}</span>
 
     </div>

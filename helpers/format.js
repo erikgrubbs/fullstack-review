@@ -8,7 +8,7 @@ const conformNewRepo = (repo) => {
   newRepo.watchers = repo.watchers;
   newRepo.ownerName =  repo.owner.login;
   newRepo.ownerUrl = repo.owner.html_url;
-  newRepo.ownerPhoto = repo.owner.avatar_ur;
+  newRepo.ownerPhoto = repo.owner.avatar_url;
   return newRepo;
 }
 

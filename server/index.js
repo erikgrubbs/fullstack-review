@@ -4,13 +4,14 @@ const getReposByUsername = require('../helpers/github.js');
 const sortByForks = require('../helpers/sort.js')
 const Conform = require('../helpers/format.js')
 const bodyParse = require('body-parser');
-const morgan = require('morgan');
+
+
+const port = process.env.PORT || 5000;
 
 let app = express();
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({ extended: true }))
-app.use(morgan('dev'));
 
 let _repos = [];
 
@@ -25,7 +26,6 @@ app.post('/repos', function ({body}, res) {
       save(repo);
       _repos.push(Conform(repo));
     })
-    console.log(_repos.length);
     _repos = sortByForks(_repos);
     res.status(201).send(_repos);
   })
@@ -43,7 +43,7 @@ app.get('/repos', function (req, res) {
   })
 });
 
-let port = 1128;
+
 
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
