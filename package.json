@@ -1,5 +1,5 @@
 {
-  "name": "topForks",
+  "name": "topforks",
   "version": "1.0.0",
   "description": "Enter in usernames to add to a database that tracks the top 25 most forked repos added",
   "scripts": {
@@ -26,5 +26,9 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "request": "^2.81.0"
+  },
+  "engines": {
+    "node": "11.x"
   }
+
 }
